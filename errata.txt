@@ -1,0 +1,107 @@
+Course 5/20-25:
+
+pg10 1.12: Screenshot does not match previous code listing
+pg10 1.13: Image description string doesn't need to be here
+
+Chapter 4:
+pg52: AudioPlayerFragment.java does not exist
+pg53 4.11: Does not include code from 4.7; needs a paragraph explaining why 
+    updateButtons() needs to be there
+pg 54 4.14: Delete "void" here
+
+Chapter 6:
+pg 73 6.4: Delete errant ">" at beginning of code listing.
+pg 73: Top level LinearLayout needs layout_height wrap_content
+pg 73 6.4: LinearLayout should have android:orientation="vertical"
+pg 78 6.11: Delete errant ">" at beginning of code listing.
+pg 78 6.11: Fix margins on TextViews to be the same
+pg 78 6.11: EditText should have layout_width="wrap_content", layout_weight="1"
+
+Chapter 7:
+pg 97: "product->clean" => "project->clean"
+
+Chapter 8:
+pg98, ch8 ListView - onCreate should be public
+pg103 8.9 - There may be a progress indicator for this screenshot,
+    depending on your version of Android.
+Pg. 104 8.12: Typo in figure title (capitalization)
+Pg. 104 8.12: Should be public, not protected; missing bracket in onCreate().
+Pg. 104 8.12: setTitle() should be getActivity().setTitle
+Pg. 104 8.12: CrimeListFragment.java, not CrimeListActivity.java
+Pg. 107 immediately after 8.16: "you pass the CrimeListFragment instance" - 
+    should be "you pass your parent activity by calling getActivity()".
+pg. 109 8.20: onListItemClick should be public, not protected.
+pg. 111: Screenshot is out of date.
+
+Chapter 9:
+pg. 118 9.3: Should be public, not protected. Also, there is no
+    R.string.toast_item_clicked
+pg. 120 9.8: There is no TAG here.
+pg. 120 9.9: There is no log statement here. "crime = ..." should be 
+    "crime = new Crime();"
+pg. 121 9.12: Add the following bits of code (new code surrounded with *):
+
+        if (crime == null)
+            crime = new Crime();
+        
+        titleField = (EditText)v.findViewById(R.id.crime_title);
+        *titleField.setText(crime.getTitle());*
+        titleField.addTextChangedListener(new TextWatcher() {
+
+        ...
+
+        });
+
+        solvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
+        solvedCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        
+pg. 124 9.19: Protected, should be public.
+pg. 125 9.20: Ignore the whole section addressing the single crime in the 
+    application.
+pg. 125 9.21: This isn't there, but delete what *is* there (crime = new Crime();)
+
+Chapter 10:
+pg. 130 10.2: There isn't an ldpi version of the icon. Should work fine
+    anyway.
+
+Chapter 11:
+pg. 149 11.4: TAG should be bold.
+pg. 152 11.7: Instead of "+ e);", should be ", e);"
+
+Chapter 12:
+pg. 159 12.8: entire onCreate should be bold
+        12.9: should all be bold
+pg. 164 12.16: s/crime_activity/crime_fragment/
+pg. 165 12.17: s/Activity/Fragment/g; findViewById => v.findViewById
+pg. 171 12.23: getActivity().finish() shouldn't be bold
+pg. 174 12.27: ignore second onStart and onStop
+
+Chapter 13:
+pg. 178 13.6: json.put(JSON_SUSPECT should be bold
+pg. 179 13.8: missing "return v;" at end of method; another later in the chapter
+Pg. 182: s/DISPLAY_NAME_PRIMARY/DISPLAY_NAME/
+
+Chapter 14:
+pg. 203 14.17: missing return v; at end of method
+pg. 204 14.21: saveButton implementation doesn't look like reality
+pg. 205 14.22: saveButton implementation doesn't look like reality
+pg. 205 14.23: ignore figure; just delete save button
+
+Chapter 15:
+pg. 211 15.6: strings come after send_report string now
+
+Chapter 16:
+pg. 219 16.5: missing additional listing:
+
+        ~~UUID crimeId = (UUID)getActivity().getIntent()
+            .getSerializableExtra(EXTRA_CRIME_ID);~~
+        UUID crimeId;
+        
+        *// get the crime ID extra
+        if (getArguments() != null) {
+            crimeId = (UUID)getArguments().getSerializable(EXTRA_CRIME_ID);
+        } else {
+            crimeId = (UUID)getActivity().getIntent().getSerializableExtra(EXTRA_CRIME_ID);
+        }*
+
