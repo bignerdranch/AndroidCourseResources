@@ -57,6 +57,7 @@ pg. 121 9.12: Add the following bits of code (new code surrounded with *):
         solvedCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         
+pg. 123 9.15: CrimeActivity should be CrimeFragment.
 pg. 124 9.17: CrimeListActivity should be CrimeListFragment.
 pg. 124 9.19: Protected, should be public.
 pg. 125 9.20: Ignore the whole section addressing the single crime in the 
