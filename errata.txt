@@ -62,11 +62,21 @@ pg. 124 9.17: CrimeListActivity should be CrimeListFragment.
 pg. 124 9.19: Protected, should be public.
 pg. 125 9.20: Ignore the whole section addressing the single crime in the 
     application.
-pg. 125 9.21: This isn't there, but delete what *is* there (crime = new Crime();)
 
 Chapter 10:
 pg. 130 10.2: There isn't an ldpi version of the icon. Should work fine
     anyway.
+pg. 132 10.7: CrimeListActivity should be CrimeListFragment.
+pg. 137 10.14: Should call getListView() instead of findViewById.
+pg. 141 10.24: "this" should be "getActivity()".
+pg. 141 10.24: Add the following code in ** to CrimeFragment:
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setRetainInstance(true);
+    *setHasOptionsMenu(true);*
+}
 
 Chapter 11:
 pg. 149 11.4: TAG should be bold.
