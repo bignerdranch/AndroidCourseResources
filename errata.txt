@@ -53,6 +53,7 @@ pg. 121 9.12: Add the following bits of code (new code surrounded with *):
         });
 
         solvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
+        *solvedCheckBox.setChecked(crime.isSolved());*
         solvedCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         
@@ -70,22 +71,24 @@ pg. 149 11.4: TAG should be bold.
 pg. 152 11.7: Instead of "+ e);", should be ", e);"
 
 Chapter 12:
-pg. 159 12.8: entire onCreate should be bold
-        12.9: should all be bold
-pg. 164 12.16: s/crime_activity/crime_fragment/
-pg. 165 12.17: s/Activity/Fragment/g; findViewById => v.findViewById
-pg. 171 12.23: getActivity().finish() shouldn't be bold
-pg. 174 12.27: ignore second onStart and onStop
+pg. 159 12.8: Entire onCreate implementation should be bold.
+        12.9: Entire listing should be bold.
+pg. 164 12.16: crime_activity should be crime_fragment.
+pg. 165 12.17: "Activity" should be "Fragment" throughout this listing. 
+    findViewById should be v.findViewById.
+pg. 171 12.23: getActivity().finish() should not be bold.
+pg. 174 12.27: Ignore second onStart and onStop.
 
 Chapter 13:
-pg. 178 13.6: json.put(JSON_SUSPECT should be bold
-pg. 179 13.8: missing "return v;" at end of method; another later in the chapter
+pg. 178 13.6: "json.put(JSON_SUSPECT..." should be bold.
+pg. 179 13.8: Missing "return v;" at end of method.
 Pg. 182: s/DISPLAY_NAME_PRIMARY/DISPLAY_NAME/
+pg. 183: 13.16: Missing "return v;" at end of method.
 
 Chapter 14:
-pg. 203 14.17: missing return v; at end of method
-pg. 204 14.21: saveButton implementation doesn't look like reality
-pg. 205 14.22: saveButton implementation doesn't look like reality
+pg. 203 14.17: Missing return v; at end of method.
+pg. 204 14.21: saveButton implementation is incorrect. Ignore.
+pg. 205 14.22: saveButton implementation is incorrect. Ignore.
 pg. 205 14.23: ignore figure; just delete save button
 
 Chapter 15:
