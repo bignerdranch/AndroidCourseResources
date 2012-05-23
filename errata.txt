@@ -80,6 +80,7 @@ public void onCreate(Bundle savedInstanceState) {
 
 Chapter 11:
 pg. 149 11.4: TAG should be bold.
+pg. 150 11.5: This code should have a "json.has(JSON_TITLE)" check.
 pg. 152 11.7: Instead of "+ e);", should be ", e);"
 
 Chapter 12:
@@ -123,6 +124,38 @@ pg. 205 14.22: saveButton implementation is incorrect. Ignore.
 pg. 205 14.23: ignore figure; just delete save button
 
 Chapter 15:
+pg. 209 15.4: Implementation should be as follows instead of as in 
+    the text:
+
+    public static class NoteTextOptionsDialog extends NoteDialog {
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final String[] strings = getResources()
+                .getStringArray(R.array.dialog_note_text_options);
+            updateNoteText(strings[0]);
+        	return new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.dialog_note_text_options_title)
+                .setSingleChoiceItems(R.array.dialog_note_text_options, 0,
+                    new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // get the strings that the dialog uses
+                        // set the note's text
+                        updateNoteText(strings[which]);
+                    }
+                })
+                .setPositiveButton(android.R.string.ok, null)
+                .setNeutralButton(R.string.custom, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // launch the text entry dialog
+                        FragmentManager fm = getActivity().getSupportFragmentManager();
+                        new NoteTextEntryDialog()
+                            .setNoteIndex(getNoteIndex())
+                            .show(fm, DIALOG_NOTE_TEXT_ENTRY);
+                    }
+                })
+                .create();
+        }
+    }
+    
 pg. 211 15.6: strings come after send_report string now
 
 Chapter 16:
