@@ -129,8 +129,7 @@ pg. 209 15.4: Implementation should be as follows instead of as in
 
     public static class NoteTextOptionsDialog extends NoteDialog {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final String[] strings = getResources()
-                .getStringArray(R.array.dialog_note_text_options);
+            final String[] strings = getResources().getStringArray(R.array.dialog_note_text_options);
             updateNoteText(strings[0]);
         	return new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.dialog_note_text_options_title)
@@ -140,6 +139,7 @@ pg. 209 15.4: Implementation should be as follows instead of as in
                         // get the strings that the dialog uses
                         // set the note's text
                         updateNoteText(strings[which]);
+                        dialog.dismiss();
                     }
                 })
                 .setPositiveButton(android.R.string.ok, null)
