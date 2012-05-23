@@ -83,13 +83,17 @@ pg. 149 11.4: TAG should be bold.
 pg. 152 11.7: Instead of "+ e);", should be ", e);"
 
 Chapter 12:
-pg. 159 12.8: Entire onCreate implementation should be bold.
+pg. 159 12.8: Says CrimeCameraFragment, should be CrimeCameraActivity
+        12.8: Entire onCreate implementation should be bold.
         12.9: Entire listing should be bold.
 pg. 164 12.16: crime_activity should be crime_fragment.
 pg. 165 12.17: "Activity" should be "Fragment" throughout this listing. 
     findViewById should be v.findViewById.
 pg. 171 12.23: getActivity().finish() should not be bold.
+pg. 172 12.24: STATE_CRIME is spurious. Shouldn't be.
+pg. 172 para after 12.24: Reword this sentence for clarity.
 pg. 174 12.27: Ignore second onStart and onStop.
+             : Should be CrimeFragment.java, not CrimeActivity.java.
 
 Chapter 13:
 pg. 178 13.6: "json.put(JSON_SUSPECT..." should be bold.
@@ -98,7 +102,22 @@ Pg. 182: s/DISPLAY_NAME_PRIMARY/DISPLAY_NAME/
 pg. 183: 13.16: Missing "return v;" at end of method.
 
 Chapter 14:
+pg. 188: It's been a while since we added the support library. Consider an xref
+    in this text?
+pg. 191 14.4: Casts to "int" in createLayoutParams are not necessary.
+pg. 201 14.16: Add text saying that this file should be created.
 pg. 203 14.17: Missing return v; at end of method.
+pg. 204 14:21: Previous paragraph refers to an onPause implementation
+    that is missing. Add the following code to CrimeFragment:
+
+    @Override
+    public void onPause() {
+        ((CriminalIntentApplication)getActivity().getApplication())
+            .updateCrime(crime);
+        
+        super.onPause();
+    }
+    
 pg. 204 14.21: saveButton implementation is incorrect. Ignore.
 pg. 205 14.22: saveButton implementation is incorrect. Ignore.
 pg. 205 14.23: ignore figure; just delete save button
