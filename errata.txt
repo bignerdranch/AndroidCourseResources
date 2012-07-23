@@ -130,6 +130,8 @@ pg. 209 15.4: Implementation should be as follows instead of as in
     public static class NoteTextOptionsDialog extends NoteDialog {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final String[] strings = getResources().getStringArray(R.array.dialog_note_text_options);
+            // initially set the note text to the default - will change
+            // if the user makes a selection
             updateNoteText(strings[0]);
         	return new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.dialog_note_text_options_title)
