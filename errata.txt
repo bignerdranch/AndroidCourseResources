@@ -73,3 +73,27 @@ pg. 182: Use the following alternative getScaledDrawable() implementation
     }
 
 
+Chapter 16, Dialogs
+
+pg. 215: Omit the setNeutralButton code from the text:
+
+    public static class NoteTextOptionsDialog extends NoteDialog {
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final String[] strings = getResources().getStringArray(R.array.dialog_note_text_options);
+            // initially set the note text to the default - will change
+            // if the user makes a selection
+            updateNoteText(strings[0]);
+            return new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.dialog_note_text_options_title)
+                .setSingleChoiceItems(R.array.dialog_note_text_options, 0,
+                    new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // set the note's text
+                        updateNoteText(strings[which]);
+                        dialog.dismiss();
+                    }
+                })
+                .setPositiveButton(android.R.string.ok, null)
+                .create();
+        }
+    }
