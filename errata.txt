@@ -1,176 +1,75 @@
-Course 5/20-25:
+Course 7/23/2012
 
-pg10 1.12: Screenshot does not match previous code listing
-pg10 1.13: Image description string doesn't need to be here
+Chapter 13, Camera
 
-Chapter 4:
-pg52: AudioPlayerFragment.java does not exist
-pg53 4.11: Does not include code from 4.7; needs a paragraph explaining why 
-    updateButtons() needs to be there
-pg 54 4.14: Delete "void" here
+pg. 171: Use the following code for surfaceChanged:
 
-Chapter 6:
-pg 73 6.4: Delete errant ">" at beginning of code listing.
-pg 73: Top level LinearLayout needs layout_height wrap_content
-pg 73 6.4: LinearLayout should have android:orientation="vertical"
-pg 78 6.11: Delete errant ">" at beginning of code listing.
-pg 78 6.11: Fix margins on TextViews to be the same
-pg 78 6.11: EditText should have layout_width="wrap_content", layout_weight="1"
-
-Chapter 7:
-pg 97: "product->clean" => "project->clean"
-
-Chapter 8:
-pg98, ch8 ListView - onCreate should be public
-pg103 8.9 - There may be a progress indicator for this screenshot,
-    depending on your version of Android.
-Pg. 104 8.12: Typo in figure title (capitalization)
-Pg. 104 8.12: Should be public, not protected; missing bracket in onCreate().
-Pg. 104 8.12: setTitle() should be getActivity().setTitle
-Pg. 104 8.12: CrimeListFragment.java, not CrimeListActivity.java
-Pg. 107 immediately after 8.16: "you pass the CrimeListFragment instance" - 
-    should be "you pass your parent activity by calling getActivity()".
-pg. 109 8.20: onListItemClick should be public, not protected.
-pg. 111: Screenshot is out of date.
-
-Chapter 9:
-pg. 118 9.3: Should be public, not protected. Also, there is no
-    R.string.toast_item_clicked
-pg. 120 9.8: There is no TAG here.
-pg. 120 9.9: There is no log statement here. "crime = ..." should be 
-    "crime = new Crime();"
-pg. 121 9.12: Add the following bits of code (new code surrounded with *):
-
-        if (crime == null)
-            crime = new Crime();
-        
-        titleField = (EditText)v.findViewById(R.id.crime_title);
-        *titleField.setText(crime.getTitle());*
-        titleField.addTextChangedListener(new TextWatcher() {
-
-        ...
-
-        });
-
-        solvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
-        *solvedCheckBox.setChecked(crime.isSolved());*
-        solvedCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        
-pg. 123 9.15: CrimeActivity should be CrimeFragment.
-pg. 124 9.17: CrimeListActivity should be CrimeListFragment.
-pg. 124 9.19: Protected, should be public.
-pg. 125 9.20: Ignore the whole section addressing the single crime in the 
-    application.
-
-Chapter 10:
-pg. 130 10.2: There isn't an ldpi version of the icon. Should work fine
-    anyway.
-pg. 132 10.7: CrimeListActivity should be CrimeListFragment.
-pg. 137 10.14: Should call getListView() instead of findViewById.
-pg. 141 10.24: "this" should be "getActivity()".
-pg. 141 10.24: Add the following code in ** to CrimeFragment:
-
-@Override
-public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setRetainInstance(true);
-    *setHasOptionsMenu(true);*
-}
-
-Chapter 11:
-pg. 149 11.4: TAG should be bold.
-pg. 150 11.5: This code should have a "json.has(JSON_TITLE)" check.
-pg. 152 11.7: Instead of "+ e);", should be ", e);"
-
-Chapter 12:
-pg. 159 12.8: Says CrimeCameraFragment, should be CrimeCameraActivity
-        12.8: Entire onCreate implementation should be bold.
-        12.9: Entire listing should be bold.
-pg. 164 12.16: crime_activity should be crime_fragment.
-pg. 165 12.17: "Activity" should be "Fragment" throughout this listing. 
-    findViewById should be v.findViewById.
-pg. 171 12.23: getActivity().finish() should not be bold.
-pg. 172 12.24: STATE_CRIME is spurious. Shouldn't be.
-pg. 172 para after 12.24: Reword this sentence for clarity.
-pg. 174 12.27: Ignore second onStart and onStop.
-             : Should be CrimeFragment.java, not CrimeActivity.java.
-
-Chapter 13:
-pg. 178 13.6: "json.put(JSON_SUSPECT..." should be bold.
-pg. 179 13.8: Missing "return v;" at end of method.
-Pg. 182: s/DISPLAY_NAME_PRIMARY/DISPLAY_NAME/
-pg. 183: 13.16: Missing "return v;" at end of method.
-
-Chapter 14:
-pg. 188: It's been a while since we added the support library. Consider an xref
-    in this text?
-pg. 191 14.4: Casts to "int" in createLayoutParams are not necessary.
-pg. 201 14.16: Add text saying that this file should be created.
-pg. 203 14.17: Missing return v; at end of method.
-pg. 204 14:21: Previous paragraph refers to an onPause implementation
-    that is missing. Add the following code to CrimeFragment:
-
-    @Override
-    public void onPause() {
-        ((CriminalIntentApplication)getActivity().getApplication())
-            .updateCrime(crime);
-        
-        super.onPause();
-    }
-    
-pg. 204 14.21: saveButton implementation is incorrect. Ignore.
-pg. 205 14.22: saveButton implementation is incorrect. Ignore.
-pg. 205 14.23: ignore figure; just delete save button
-
-Chapter 15:
-pg. 209 15.4: Implementation should be as follows instead of as in 
-    the text:
-
-    public static class NoteTextOptionsDialog extends NoteDialog {
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final String[] strings = getResources().getStringArray(R.array.dialog_note_text_options);
-            // initially set the note text to the default - will change
-            // if the user makes a selection
-            updateNoteText(strings[0]);
-        	return new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.dialog_note_text_options_title)
-                .setSingleChoiceItems(R.array.dialog_note_text_options, 0,
-                    new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // get the strings that the dialog uses
-                        // set the note's text
-                        updateNoteText(strings[which]);
-                        dialog.dismiss();
-                    }
-                })
-                .setPositiveButton(android.R.string.ok, null)
-                .setNeutralButton(R.string.custom, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // launch the text entry dialog
-                        FragmentManager fm = getActivity().getSupportFragmentManager();
-                        new NoteTextEntryDialog()
-                            .setNoteIndex(getNoteIndex())
-                            .show(fm, DIALOG_NOTE_TEXT_ENTRY);
-                    }
-                })
-                .create();
+        public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
+            // the surface has changed size; update the camera preview size
+            Camera.Parameters parameters = camera.getParameters();
+            Size s = null; // ????
+            parameters.setPreviewSize(s.width, s.height);
+            camera.setParameters(parameters);
+            s = null; // ???
+            parameters.setPictureSize(s.width, s.height);
+            try {
+                camera.startPreview();
+            } catch (Exception e) {
+                Log.e(TAG, "Could not start preview", e);
+                camera.release();
+                camera = null;
+            }
         }
+
+pg. 172: Use the following code for surfaceChanged:
+
+        public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
+            // the surface has changed size; update the camera preview size
+            Camera.Parameters parameters = camera.getParameters();
+            Size s = getBestSupportedSize(parameters.getSupportedPreviewSizes(), w, h);
+            parameters.setPreviewSize(s.width, s.height);
+            s = getBestSupportedSize(parameters.getSupportedPictureSizes(), w, h);
+            parameters.setPictureSize(s.width, s.height);
+            camera.setParameters(parameters);
+            try {
+                camera.startPreview();
+            } catch (Exception e) {
+                Log.e(TAG, "Could not start preview", e);
+                camera.release();
+                camera = null;
+            }
+        }
+
+
+pg. 182: Use the following alternative getScaledDrawable() implementation 
+    (uses code from http://developer.android.com/training/displaying-bitmaps/load-bitmap.html):
+
+    public static BitmapDrawable getScaledDrawable(Activity a, String path) {
+        Display display = a.getWindowManager().getDefaultDisplay();
+        float destWidth = display.getWidth();
+        float destHeight = display.getHeight();
+
+        // read in the dimensions of the image on disk
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, options);
+
+        float srcWidth = options.outWidth;
+        float srcHeight = options.outHeight;
+
+        int inSampleSize = 1;
+        if (srcHeight > destHeight || srcWidth > destWidth) {
+            if (srcWidth > srcHeight) {
+                inSampleSize = Math.round((float)srcHeight / (float)destHeight);
+            } else {
+                inSampleSize = Math.round((float)srcWidth / (float)destWidth);
+            }
+        }
+
+        options = new BitmapFactory.Options();
+        options.inSampleSize = inSampleSize;
+
+        return new BitmapDrawable(BitmapFactory.decodeFile(path, options));
     }
-    
-pg. 211 15.6: strings come after send_report string now
 
-Chapter 16:
-pg. 219 16.5: missing additional listing:
-
-        ~~UUID crimeId = (UUID)getActivity().getIntent()
-            .getSerializableExtra(EXTRA_CRIME_ID);~~
-        UUID crimeId;
-        
-        *// get the crime ID extra
-        if (getArguments() != null) {
-            crimeId = (UUID)getArguments().getSerializable(EXTRA_CRIME_ID);
-        } else {
-            crimeId = (UUID)getActivity().getIntent().getSerializableExtra(EXTRA_CRIME_ID);
-        }*
 
