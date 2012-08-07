@@ -14,4 +14,5 @@ Chapter 9, ListView
 
 Chapter 10, Multiple Activities
     Pg 156, Figure 10.13: Crime is a reference, so this code is not necessary
+    Pg 162, Figure 10.25: LinearLayout should not be deleted here
 
