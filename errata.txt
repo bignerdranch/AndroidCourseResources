@@ -10,6 +10,7 @@ Chapter 6, Fragments And The Fragment Manager
 
 Chapter 9, ListView
     Pg 147, Figure 9.29: focusable has already been set to "true" on the previous page.
+    Pg 147, Figure 9.29: CheckBox also needs android:clickable="false"
 
 Chapter 10, Multiple Activities
     Pg 156, Figure 10.13: Crime is a reference, so this code is not necessary
