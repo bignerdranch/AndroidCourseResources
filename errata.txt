@@ -7,3 +7,10 @@ Chapter 6, Fragments And The Fragment Manager
         host an activity..." should be "The first thing to consider when 
         preparing an activity to host a fragment..."
     Pg 81, Figure 6.13: crime_fragment should be fragment_crime
+
+Chapter 9, ListView
+    Pg 147, Figure 9.29: focusable has already been set to "true" on the previous page.
+
+Chapter 10, Multiple Activities
+    Pg 156, Figure 10.13: Crime is a reference, so this code is not necessary
+
