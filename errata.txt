@@ -17,6 +17,9 @@ Chapter 10, Multiple Activities
     Pg 162, Figure 10.25: LinearLayout should not be deleted here
 
 Chapter 11, Menus
+    Pg 165, Instructions on this page omit the xhdpi folder.
+    Pg 166, Figure 11.4: This listing includes two mysterious strings which are never used. They should be ignored.
     Pg 176, "Now you can run..." You cannot at this point use the home button to navigate up,
         because it has not been enabled. Call "setDisplayHomeAsUpEnabled(true)" as depicted
         on page 178 to enable the Home button.
+
