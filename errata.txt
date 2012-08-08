@@ -23,3 +23,7 @@ Chapter 11, Menus
         because it has not been enabled. Call "setDisplayHomeAsUpEnabled(true)" as depicted
         on page 178 to enable the Home button.
 
+Chapter 12, Camera
+    Pg 199, Figure 13.15: The Camera.open(int) method is only available on SDK 9 and up. To prevent
+        Android Lint from producing an error from this code, change your project's minSdkVersion
+        to "9" in your AndroidManifest.xml.
