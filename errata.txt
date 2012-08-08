@@ -36,3 +36,38 @@ Chapter 12, Camera
 Chapter 15, Touch Events
     Pg 240, "All is not perfect..." For some reason, this paragraph ends with the sentence, "ImageView." This 
         is an error.
+    Pg 241, Figure 15.24:
+        This code: 
+
+    public Note(JSONObject json) throws JSONException {
+    	text = json.getString(JSON_TEXT);
+        originX = json.getInt(JSON_ORIGIN_X);
+        originY = json.getInt(JSON_ORIGIN_Y);
+        currentX = json.getInt(JSON_CURRENT_X);
+        currentY = json.getInt(JSON_CURRENT_Y);
+    }
+
+        Should be this instead:
+
+    public Note(JSONObject json) throws JSONException {
+    	text = json.getString(JSON_TEXT);
+        originX = (float)json.getDouble(JSON_ORIGIN_X);
+        originY = (float)json.getDouble(JSON_ORIGIN_Y);
+        currentX = (float)json.getDouble(JSON_CURRENT_X);
+        currentY = (float)json.getDouble(JSON_CURRENT_Y);
+    }
+        
+    Pg 243, "If you were puzzled..." These two paragraphs should read as follows:
+
+        Your implementation here of addNote(Note) should be self explanatory. onLayout(...), though,
+        requires some explanation. See, a user of this class will typically want to configure it in
+        onCreateView(...). The problem is that in onCreateView(...), the views have not been laid out
+        yet. That means that NoteDrawingView has no width or height! If you look back at your implementation
+        of getLayoutParams(...), you can see that it will produce a view with a width and height of 0 
+        under those conditions.
+
+        The solution is to, for the time being, use those bogus layout params to set the child to be sizeless.
+        By the time onLayout(...) is called, NoteDrawingView will know how big it is, and getLayoutParams(...)
+        will return useful values. So in your onLayout(...) implementation, you double check the layout
+        params values before calling through to super to let FrameLayout.onLayout(...) do its thing.
+
