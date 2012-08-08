@@ -28,6 +28,11 @@ Chapter 12, Camera
         Android Lint from producing an error from this code, change your project's minSdkVersion
         to "9" in your AndroidManifest.xml.
     Pg 210, Figure 13.29: The code here disagrees with the text on page 209. The code is right; the text 
-        is wrong.
+        is wrong. Bitmaps are large, and we need to be aggressive about releasing them. Also, when the 
+        image returns from the CrimeCameraActivity, onActivityResult is only called *after* onStart is called.
     Pg 210, Figure 13.29: onPause is missing code from earlier in the book. Preserve the existing code
         in your project here. 
+
+Chapter 15, Touch Events
+    Pg 240, "All is not perfect..." For some reason, this paragraph ends with the sentence, "ImageView." This 
+        is an error.
