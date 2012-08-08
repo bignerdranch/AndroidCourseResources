@@ -27,3 +27,5 @@ Chapter 12, Camera
     Pg 199, Figure 13.15: The Camera.open(int) method is only available on SDK 9 and up. To prevent
         Android Lint from producing an error from this code, change your project's minSdkVersion
         to "9" in your AndroidManifest.xml.
+    Pg 210, Figure 13.29: onPause is missing code from earlier in the book. Preserve the existing code
+        in your project here. 
