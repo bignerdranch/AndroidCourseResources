@@ -88,3 +88,6 @@ Chapter 15, Touch Events
         params values before calling through to super to let FrameLayout.onLayout(...) do its thing.
 
     Pg 248, Figure 16.4: .setNeutralButton() implementation here should be omitted.
+
+Chapter 22, Local Services
+    Pg 328, Figure 22.29: downloadThread.loadPhoto(photo) here should be downloadThread.downloadPhoto(photo).
