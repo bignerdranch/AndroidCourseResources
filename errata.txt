@@ -23,17 +23,33 @@ Chapter 11, Menus
         because it has not been enabled. Call "setDisplayHomeAsUpEnabled(true)" as depicted
         on page 178 to enable the Home button.
 
-Chapter 12, Camera
+Chapter 12, File I/O
+    Pg 181, under "Creating the CriminalIntentJSONSerializer class":
+        "Right-click/Command-click" should be "Right-click/Control-click" (thanks to Dirk Stoop)
+
+Chapter 13, Camera
+    Pg 195, Figure 13.10: New code is not bold. (thanks to Dirk Stoop)
+    Pg 197, Figure 13.12: holder.setType and SURFACE_TYPE_PUSH_BUFFERS are both deprecated. The text should
+        mention the reason for this: while these calls are deprecated and poorly documented, they
+        are required on older devices for your Camera preview to work. (thanks to Dirk Stoop)
     Pg 199, Figure 13.15: The Camera.open(int) method is only available on SDK 9 and up. To prevent
         Android Lint from producing an error from this code, change your project's minSdkVersion
         to "9" in your AndroidManifest.xml.
+    Pg 207, 13.26: "watson.CRIME_ID" should be "criminalintent.CRIME_ID"; STATE_CRIME also appears here, and
+        should not. (thanks to Dirk Stoop)
     Pg 210, Figure 13.29: The code here disagrees with the text on page 209. The code is right; the text 
         is wrong. Bitmaps are large, and we need to be aggressive about releasing them. Also, when the 
         image returns from the CrimeCameraActivity, onActivityResult is only called *after* onStart is called.
     Pg 210, Figure 13.29: onPause is missing code from earlier in the book. Preserve the existing code
         in your project here. 
 
+    The code for this chapter causes the photo in the button to appear to "blink" out before CrimeNotesActivity
+    in subsequent chapters. To fix this behavior, move the code to clear the photoButton from onPause to onStop. 
+        (thanks to Dirk Stoop)
+
 Chapter 15, Touch Events
+    Pg 236, below figure 15.15: "If you leave out the call to postInvalidate(), you will get unattractive trailing"
+        The call to postInvalidate is not actually necessary here. (thanks to Dirk Stoop)
     Pg 240, "All is not perfect..." For some reason, this paragraph ends with the sentence, "ImageView." This 
         is an error.
     Pg 241, Figure 15.24:
