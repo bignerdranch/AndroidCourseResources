@@ -91,3 +91,11 @@ Chapter 15, Touch Events
 
 Chapter 22, Local Services
     Pg 328, Figure 22.29: downloadThread.loadPhoto(photo) here should be downloadThread.downloadPhoto(photo).
+
+    Pg 324, Figure 22.23: In this change set, this line of code:
+
+        photos = new ArrayList<Photo>();
+
+        Should be changed to this:
+
+        photos = fetcher.getCachedPhotos();
