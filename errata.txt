@@ -46,6 +46,13 @@ Chapter 13, Camera
     The code for this chapter causes the photo in the button to appear to "blink" out before CrimeNotesActivity
     in subsequent chapters. To fix this behavior, move the code to clear the photoButton from onPause to onStop. 
         (thanks to Dirk Stoop)
+        
+Chapter 14, Implicit Intents
+    Pg 199, Figure 14.11: The suspect choosing Intent should be structured like so:
+        
+        Intent i = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        startActivityForResult(i, REQUEST_CONTACT);
+        
 
 Chapter 15, Touch Events
     Pg 236, below figure 15.15: "If you leave out the call to postInvalidate(), you will get unattractive trailing"
