@@ -74,7 +74,7 @@ A passage says,
 
 There is no DatePicker in the listing, so the passage should not mention DatePicker at all.
 
-## Chapter 18 - Context Menus and Contextual Action Mode
+## Chapter 18: Context Menus and Contextual Action Mode
 
 ### Page 283 - Figure 18.1
 
@@ -134,5 +134,69 @@ The method should instead read:
     
 The bracing is correct around this line; the indentation, however, is not. This line should be indented one indentation level to the left, to be even with "return json;" on the following line.
 
+## Chapter 22: Two-Pane Master-Detail Interfaces
 
+### Page 367 - Listing 22.8
+
+The override for getLayoutResId() looks like this:
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.activity_twopane;
+    }
+
+This disagrees with earlier code, which asked you to use R.layout.activity_masterdetail. The earlier code is correct, and activity_masterdetail should be used.  The code in listing 22.8 should instead read:
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.activity_masterdetail;
+    }
+
+### Page 369
+
+Just under Figure 22.6, the text says the following: `Right now, you only reload the list immediately after adding a crime…`
+
+Don't have any code that does that? You're not crazy - the text is incorrect here. No such code has been specified in the text so far.
+
+### Page 370 - Listing 22.13 
+
+You see the following code listing:
+
+    public void onCrimeUpdated(Crime crime) {
+        FragmentManager fm = getSupportFragmentManager();
+        CrimeListFragment listFragment = (CrimeListFragment)
+                fm.findFragmentById(R.id.fragmentContainer);
+        listFragment.updateUI();
+    }
+
+This listing is missing some context - there is no implementation of the interface. The complete listing should be as follows:
+
+    public class CrimeListActivity extends SingleFragmentActivity 
+        implements CrimeListFragment.Callbacks, CrimeFragment.Callbacks {
+
+        ...
+
+        public void onCrimeUpdated(Crime crime) {
+            FragmentManager fm = getSupportFragmentManager();
+            CrimeListFragment listFragment = (CrimeListFragment)
+                    fm.findFragmentById(R.id.fragmentContainer);
+            listFragment.updateUI();
+        }
+    }
+
+CrimeFragment.Callbacks at the top and the entire onCrimeUpdated(Crime) implementation should be bolded to indicate this is new code to be added.
+
+### Home icon crash on tablet devices
+
+If you tap the Home icon in the action bar on a tablet, the app will crash. The issue is that CrimeListActivity has no parent activity. 
+
+To fix, add the following code to CrimeFragment.onCreateView:
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_crime, parent, false);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB &&
+              NavUtils.getParentActivityIntent(getActivity()) != null) {
+            getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
