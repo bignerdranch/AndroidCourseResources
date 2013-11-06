@@ -1,12 +1,12 @@
 # Android Programming: The Big Nerd Ranch Guide - Errata
 
 
-## Chapter 1
+## Chapter 1: Your First Android Application
 
 ### Page 26 
 In the 2nd to last line the URL for the developer site link has an extra "http://" at the front. 
 
-## Chapter 2
+## Chapter 2: Android and Model-View-Controller
 
 ### Page 37
 
@@ -21,15 +21,10 @@ Missing comma when creating the array:
         new TrueFalse(R.string.question_mideast, false),
         new TrueFalse(R.string.question_africa, false) <-- comma needed at end of this line
         new TrueFalse(R.string.question_americas, true),
-        new TrueFalse(R.string.question_asia, true),
+        new TrueFalse(R.string.question_asia, true), <-- extra trailing comma has no effect
     };
     
 The extra trailing comma is not required, but we typically include it because it makes adding new items later easier.
-
-### Page 51
-
-Same error as Page 37, though text is striked out in the code example here.
-
 
 ### Page 45
 
@@ -39,14 +34,25 @@ Paragragh at bottom of the page says,
 
 The middle item should omit "res/".
 
+
+### Page 51
+
+Same error as Page 37, though text is striked out in the code example here.
+
+
 ### Misc: mQuestionBank vs. mAnswerKey
 
 The instance variable for the list of questions is called mQuestionBank in this chapter. In Chapters 3, 4, and 5, the same variable is called mAnswerKey.
 
 Go with the name you originally typed in - mQuestionBank. Chapters 3, 4, and 5 are incorrect.
 
+## Chapter 3: The Activity Lifecycle
 
-## Chapter 5
+### Page 56 
+
+In the paragraph just above "Using LogCat", onCreate is missing an 'e'.
+
+## Chapter 5: Your Second Activity
 
 ### Page 93
 
@@ -60,7 +66,38 @@ The "fragment_crime.xml" filename should be "activity_cheat.xml" instead.
 
 The `android:text` attribute for the first TextView is shown as "@string/warning_text_view". This should instead be `"@string/warning_text"`.
 
-## Chapter 8
+### Page 103 - Listing 5.10
+
+Rename mAnswerKey to mQuestionBank (as originally definied in Chatper 2).
+
+## Chapter 6: Android SDK Versions and Compatibility
+
+### Page 114
+
+Under the "Honeycomb was big" section, second paragraph states, `Given that more than half of devices still run Gingerbread or older devices, developers…`. It should instaed read something like, `Given that more than half of devices still run API levels Gingerbread or older, developers…`
+
+### Page 119 
+
+The code in listings 6.3 and 6.4 should be placed in QuizActivity.java.  The listings are not labeled with the file names.
+
+
+### Page 119 - Listing 6.4 
+
+The line `actionBar.setSubtitle("TFFTT");` should be replaced with `actionBar.setSubtitle("Bodies of Water");`
+
+Also, this listing hardcodes 11 in the @Target directive: `@TargetApi(11)`.  Using the Build version code constants works as well: `@TargetApi(Build.VERSION_CODES.HONEYCOMB)`.
+
+## Chapter 7: UI Fragments and the Fragment Manager
+
+### Page 136 - Page 138
+
+Some of the newly addded code is not bolded in the listings.  
+
+### Page 138 - Listing 7.6
+
+Contains an extra string definition that was never described. If you follow the book to this point, the file will only contain app_name, hello_world, and menu_settings.  Go ahead and add the title_activity_crime entry while you are at it.
+
+## Chapter 8: Creating User Interfaces with Layouts and Widgets
 
 ### Page 151 - Listing 8.3
 
@@ -73,6 +110,11 @@ A passage says,
     Organize your imports to resolve the references to DatePicker and CheckBox.
 
 There is no DatePicker in the listing, so the passage should not mention DatePicker at all.
+
+### Page 159 - Figure 8.6
+
+XML text in the child LinearLayout box doesn't show the required attribute `android:orientation="horizontal"`.  Make sure to add it.  The text talks about selecting horizontal from the palette, but if someone is typing in directly based on Figure 8.6 and don't include the require attribute they will get an error.
+
 
 ## Chapter 18: Context Menus and Contextual Action Mode
 
